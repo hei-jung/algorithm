@@ -22,3 +22,5 @@ class Solution(object):
             for j in range(n):
                 if grid[i][j] == 0 and dfs(i, j):
                     count += 1
+
+        return count
