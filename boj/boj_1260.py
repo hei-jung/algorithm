@@ -31,7 +31,7 @@ def dfs(src):
 dfs(V)
 print(' '.join(list(map(str, visited))))
 
-visited = []
+visited = [V]
 
 
 # 너비 우선 탐색
@@ -40,8 +40,6 @@ def bfs(src):
     q.append(src)  # 방문할 노드를 큐에 저장
     while q:
         i = q.popleft()  # 이번에 방문할 노드
-        if i not in visited:
-            visited.append(i)
         # print('이번에 방문할 노드', i, '에 연결된 노드들', graph[i - 1])
         for j in sorted(graph[i - 1]):  # i 노드에 연결된 노드들
             if j + 1 not in visited:  #
