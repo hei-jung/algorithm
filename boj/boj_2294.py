@@ -5,8 +5,8 @@ coins = []
 for _ in range(n):
     coins.append(int(sys.stdin.readline()))
 
-dp = [10001] * (k + 1)
-dp[0] = 0  # 최소 동전 갯수
+dp = [10001] * (k + 1)  # 10001 = 최대 동전 갯수 + 1
+dp[0] = 0
 
 for coin in coins:
     for i in range(coin, k + 1):
