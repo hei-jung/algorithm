@@ -3,12 +3,13 @@ s = []
 for _ in range(n):
     s.append(list(map(int, input().split())))
 
-ans = [1000000000]
+ans = 1000000000
 
 visited = [0] * n  # 탐색 여부
 
 
 def dfs(x, cnt):
+    global ans
     if cnt == n // 2:
         start = 0
         link = 0
@@ -20,8 +21,8 @@ def dfs(x, cnt):
                 elif visited[i] == 0 and visited[j] == 0:
                     link += s[i][j]
                     link += s[j][i]
-        ans[0] = min(ans[0], abs(start - link))
-        if ans[0] == 0:
+        ans = min(ans, abs(start - link))
+        if ans == 0:
             print(0)
             exit(0)
         return
@@ -34,4 +35,4 @@ def dfs(x, cnt):
 
 dfs(0, 0)
 
-print(ans[0])
+print(ans)
