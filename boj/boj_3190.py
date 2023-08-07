@@ -14,7 +14,7 @@ for _ in range(l):
 directions = deque([(0, 1), (1, 0), (0, -1), (-1, 0)])  # 뱀의 초기 방향: 오른쪽
 
 
-def rotate(d):
+def turn(d):
     if d == 'L':
         directions.rotate(1)
     elif d == 'D':
@@ -28,7 +28,7 @@ i, j = 0, 1  # 뱀 다음 머리 좌표
 while 1:
     t += 1
     if t in info:
-        rotate(info[t])
+        turn(info[t])
 
     # - 먼저 뱀은 몸길이를 늘려 머리를 다음칸에 위치시킨다.
     snake.append((i, j))
