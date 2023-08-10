@@ -23,15 +23,14 @@ for i in range(n):
 
 def bfs(infected_graph):
     global max_safe_zone
-    for vx, vy in virus:
-        q = deque([(vx, vy)])
-        while q:
-            x, y = q.popleft()
-            for dx, dy in directions:
-                nx, ny = x + dx, y + dy
-                if 0 <= nx < n and 0 <= ny < m and infected_graph[nx][ny] == 0:
-                    q.append((nx, ny))  # 다음 방문 좌표로 지정
-                    infected_graph[nx][ny] = 2  # 바이러스 퍼짐
+    q = deque(virus)
+    while q:
+        x, y = q.popleft()
+        for dx, dy in directions:
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < n and 0 <= ny < m and infected_graph[nx][ny] == 0:
+                q.append((nx, ny))  # 다음 방문 좌표로 지정
+                infected_graph[nx][ny] = 2  # 바이러스 퍼짐
     safe_zone = 0
     for x in range(n):
         for y in range(m):
