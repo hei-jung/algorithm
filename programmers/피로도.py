@@ -4,7 +4,6 @@ answer = 0
 def solution(k, dungeons):
     global answer
     n = len(dungeons)  # 던전의 개수
-    a = list(range(n))
     visited = [0] * n
 
     def search(cnt, arr):
@@ -22,7 +21,7 @@ def solution(k, dungeons):
         for i in range(n):
             if visited[i] == 0:
                 visited[i] = 1
-                search(cnt + 1, arr + [a[i]])
+                search(cnt + 1, arr + [i])
                 visited[i] = 0
 
     search(0, [])
