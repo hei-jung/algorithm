@@ -10,7 +10,7 @@ dy = [0, 0, 1, 1, 1, 0, -1, -1, -1]
 
 def bfs(x, y):
     q = deque([(x, y)])
-    cnt = 0  # 벽 이동 회수
+    cnt = 0  # 벽 이동 횟수
     while q:
         for _ in range(len(q)):
             x, y = q.popleft()  # 캐릭터 현재 위치
